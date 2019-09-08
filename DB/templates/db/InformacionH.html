@@ -1,0 +1,140 @@
+{% extends "inicio/Inicio.html" %}
+{% block titulo %}Muestrario{% endblock %}
+{% load static %}
+{% block Contenido%}
+<!-- content -->
+<div class="body3">
+        <header id="hh">
+            <nav class="nav">
+                <ul id="menu">
+                    <li id="menu_active"><a href="{%url 'MuestrarioR'%}">Catalogo en Renta</a></li>
+                    <li><a href="{%url 'MuestrarioV'%}">Catalogo en Venta</a></li>
+                    <li><a href="{%url 'Muestrario'%}">Catalogo</a></li>
+                </ul>
+            </nav>
+            </header>
+    </div> 
+<div class="body2">
+    {% csrf_token %}
+    <div class="main">
+        <section id="content">
+            <div class="wrapper">
+                <article class="col1">
+                    <div id="slider">
+                        <img style="width: 65px; height: 15px;" src="{{clave.FotoUno.url}}" alt="" title="<strong>{{clave.Titulo}}</strong">
+                        <img style="width: 65px; height: 15px;"src="{{clave.FotoDos.url}}" alt="" title="<strong>{{clave.Ciudad}}, {{clave.Estado}}, {{clave.Colonia}}</strong>">
+                        <img style="width: 65px; height: 15px;"src="{{clave.FotoTres.url}}" alt="" title="<strong>{{clave.NoCuartos}} Recamaras</strong>">
+                        <img style="width: 65px; height: 15px;"src="{{clave.FotoCuatro.url}}" alt="" title="<strong>{{clave.Banios}} Baño{{letra}}</strong>">
+                    </div>
+                </article>
+            </div>
+            <h2 class="pad_bot1">{{clave.Titulo}}</h2>
+            <div class="wrapper" >
+                <article class="col1">
+                    <div class="pad_left1">
+                        <h2 class="pad_bot1">Información</h2>
+                        <div class="wrapper">
+                            <article class="cols">
+                                <p class="pad_bot1"><strong class="color1">Recamaras <br></strong></p>
+                                <p class="pad_bot2">{{clave.NoCuartos}}</p>
+                            </article>
+                            <article class="cols pad_left1">
+                                <p class="pad_bot1"><strong class="color1">Baños</strong></p>
+                                <p class="pad_bot2">{{clave.Banios}}</p>
+                            </article>
+                            <article class="cols pad_left1">
+                                    <p class="pad_bot1"><strong class="color1">Tipo</strong></p>
+                                    <p class="pad_bot2">{{clave.idVR.Categoria}}</p>
+                                </article>
+                                <article class="cols">
+                                        <p class="pad_bot1"><strong class="color1">Precio</strong></p>
+                                        <p class="pad_bot2">${{clave.idVR.Precio}}</p>
+                                    </article>
+                            
+                        </div>
+                    </div>
+                </article>
+                <article class="col1">
+                        <div class="pad_left1">
+                            <h2 class="pad_bot1">Ubicación</h2>
+                            <div class="wrapper">
+                                <article class="cols">
+                                    <p class="pad_bot1"><strong class="color1">Estado Y Ciudad <br></strong></p>
+                                    <p class="pad_bot2">{{clave.Ciudad}}, {{clave.Estado}}</p>
+                                </article>
+                                <article class="cols pad_left1">
+                                    <p class="pad_bot1"><strong class="color1">Colonia y Calle</strong></p>
+                                    <p class="pad_bot2">{{clave.Calle}} #{{clave.No}}, {{clave.Colonia}}</p>
+                                </article>
+                                
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col1">
+                            <div class="pad_left1">
+                                <h2 class="pad_bot1">Descripción</h2>
+                                <div class="wrapper">    
+                                        <p class="pad_bot2">{{clave.Descripcion}}</p>      
+                                </div>
+                                <div style="overflow:hidden;width: 1000px;position: relative;"><iframe width="845px" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q={{clave.Ciudad}}%2C{{clave.Estado}}%2C{{clave.Calle}}{{clave.No}}%2C%20{{clave.Colonia}}+({{clave.Titulo}})&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/en/">https://embedgooglemaps.com/en/</a> & <a href="https://lasagradafamiliatickets.de/la-sagrada-familia-ticket/">tickets</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+                            </div>
+                        </article>
+                        <article class="col1">
+                                <div class="pad_left1">
+                                    <h2 class="pad_bot1">Contacto</h2>
+                                    <div class="wrapper">
+                                        <article class="cols">
+                                            <p class="pad_bot1"><strong class="color1">Telefono <br></strong></p>
+                                            <p class="pad_bot2">{{clave.Telefono}}<br>{{clave.idI.Telefono}}</p>
+                                        </article>
+                                        <article class="cols pad_left1">
+                                            <p class="pad_bot1"><strong class="color1">Correo</strong></p>
+                                            <p class="pad_bot2">{{clave.Correo}}<br>{{clave.idI.Correo}}</p>
+                                        </article>
+                                        <article class="cols pad_left1">
+                                                <form class="form-horizontal" action="" role="form" method="POST">
+                                                        {% csrf_token %}
+                                                        {% if 'ok' in request.GET %}
+                                                            <p><h6>Registro realizado, en breve nos pondremos en contacto con usted</h6></p>
+                                                        {% endif %}
+                                                        {% if 'fail' in request.GET %}
+                                                            <p><h6>Problemas al registrar intente más tarde</h6></p>
+                                                        {% endif %}
+                                                        <div class="panel panel-default" style="width: 500px; background-color: black">
+                                                            <div class="panel-body">
+                                                
+                                                                <div class="form-group">
+                                                                        <label class="col-sm-2 control-label text-right">Correo o Telefono:</label>
+                                                                        <div class="col-sm-10">
+                                                                            {{form.persona}}
+                                                                        </div>
+                                                                        {{form.persona.errors}}
+                                                                    </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label text-right">Mensaje:</label>
+                                                                    <div class="col-sm-10">
+                                                                        {{form.comentario}}
+                                                                    </div>
+                                                                    {{form.comentario.errors}}
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="form-actions">
+                                                                    <input class="claves" type="submit" value="Enviar" class="btn btn-primary">
+                                                                </div>
+                                                
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                        </article>
+                                    </div>
+                                </div>
+                            </article>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- / content -->
+{% endblock %}

@@ -1,0 +1,161 @@
+#top div{
+	padding:30px 20px;
+	}
+
+section aside div{
+	border:1px solid #999;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	width: 50%;
+	height: auto;
+	}
+	
+section aside div img{
+	margin:20px auto 10px auto;
+	height: auto;
+	}
+	
+#galeria ul li{
+	list-style:none;
+	display:inline;
+	}
+	
+#galeria ul li img{
+	width:30%;
+	margin:10px 5px;
+	}
+	
+footer div form{
+	padding:20px;
+	}
+	
+footer ul{
+	list-style:none;
+	padding:20px;
+	font-size:18px;
+	color:#555;
+	}
+	
+footer ol{
+	list-style:none;
+	padding:20px;
+	}
+	
+footer ol li{
+	float:left;
+	width:50px;
+	height:50px;
+	border-radius:100%;
+	margin:5px;
+	background:url(file:///Sin%20t%C3%ADtulo/Users/paulinasolorzano/Desktop/SEPTIEMBRE-DICIEMBRE%202018/7%C2%BA/medios/03.%20Maquetaci%C2%A2n%20y%20Wireframe%20-%20Resuelto/img/photo.jpg);
+	background-size:cover;
+	}
+
+
+/*--Tamaño de pantalla "Large"--*/
+
+@media (min-width:1200px){
+	
+	#logo img{
+		padding:20px 10px;
+		}
+	
+		
+	#galeria ul{
+		margin-left:-15px;
+		}
+
+	}
+	
+/*--Tamaño "Medium Desktop"--*/
+	
+@media (max-width:1199px) and (min-width:992px){
+	
+	#logo img{
+		padding:20px 10px;
+		}
+		
+	#galeria ul{
+		margin-left:-35px;
+		}
+		
+	footer ul{
+	list-style:none;
+	padding:20px 10px;
+	font-size:12px;
+	color:#555;
+	}
+
+	}
+	
+/*--Para Tablets--*/
+	
+@media (max-width:991px) and (min-width:768px){
+	
+	#logo img{
+		padding:20px 240px;
+		}
+	
+	nav#botonera{
+		margin:2% 0;
+		width:100%;
+		}
+		
+	nav#botonera ul{
+		width:100%;
+		}
+		
+	nav#botonera ul li{
+		width:18%;
+		text-align:center;
+		margin:0 1%;
+		}
+		
+	section aside div{
+		border:0px solid #999;
+		}
+		
+	#galeria ul{
+		margin-left:-25px;
+		}
+
+	}
+	
+/*--Para teléfonos--*/
+	
+@media (max-width:767px){
+	
+	#logo{
+		background:white;
+		}
+		
+	#logo img{
+		padding:20px 30px;
+		}
+
+		nav#botonera{
+			margin:2% 0;
+			width:10%;
+			}
+			
+		nav#botonera ul{
+			width:100%;
+			}
+			
+		nav#botonera ul li{
+			width:18%;
+			text-align:center;
+			margin:0 1%;
+			}
+		
+	#galeria ul{
+		margin-left:-35px;
+		}
+		
+	#galeria ul li img{
+		width:100%;
+		margin:10px auto;
+		
+		}
+	 	
+	}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <script>
+            function redireccionar(){
+                setTimeout("location.href='{%url 'Inicio'%}'",1000)
+            }
+        </script>
+        <title>
+
+        </title>
+    </head>
+    
+    <body onload="redireccionar()">
+
+       <center><img src="{% static 'inicio/img/LogoRentame.png' %}"/></center>
+
+    </body>
+</html>

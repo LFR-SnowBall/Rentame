@@ -1,0 +1,180 @@
+{% extends "inicio/Inicio.html" %}
+{% block titulo %}Muestrario{% endblock %}
+{% load static %}
+{% block Contenido%}
+    <div>
+        <header id="hh">         
+            <div class="body3">
+                <nav id="botonera">
+                    <ul>
+                        <form id="form_11" method="post">
+                            <div class="pad1"></div>
+                                        
+                                <div class="cols pad_left1">
+                                    Estado: <br>
+                                    <select id="Estado"><option selected value="0">Estado</option><option>Michoacán</option></select>
+                                </div>
+                                <div class="cols pad_left1">
+                                    Ciudad:<br>
+                                    <select id="Ciudad"><option select value="0">Ciudad</option ><option>Morelia</option></select>
+                                </div>    
+                                <div class="cols pad_left1">
+                                    Tipo:<br>
+                                    <select><option select value="0">Venta</option><option>Renta</option></select>
+                                </div>
+                                <div class="cols pad_left1">
+                                    Catergoria:<br>
+                                    <select><option select value="0">Casa</option><option>Oficina</option><option>Hotel</option></select>
+                                </div>
+                                <div class="cols pad_left1">
+                                    Desde $:<br>
+                                    <input class="precio" type="number" placeholder="$ MXN">
+                                </div>
+                                <div class="cols pad_left1">
+                                    Hasta $:<br>
+                                    <input class="precio" type="number" placeholder="$ MXN">
+                                </div>
+                                        
+                                        
+                                <div class="cols pad_left1">
+                                    Habitaciones:<br>
+                                    <select><option select value="1">1+</option><option>4+</option><option>8+</option></select>
+                                </div>
+                                <div class="cols pad_left1">
+                                    Baños:<br>
+                                    <select><option select value="1">1+</option><option>4+</option><option>8+</option></select>
+                                </div>
+                                    
+                                            
+                                <div class="cols pad_left1">
+                                    <a href="{% url 'Muestrario' %}" class="button" onClick="">Buscar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </ul>
+                 </nav>
+            </div>     
+        </header>
+
+        <!-- Casas en renta -->
+        <section id="seccion">
+
+	
+            
+                <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                                <img src="{% static 'inicio/img/Casa4.jpg' %}" class="img-thumbnail" width="100%">
+                                <p>Casa en renta </p>
+                                 <a href="{%url 'Informacion'%}" data-toggle="modal">
+                                <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                                </a>
+                                
+                            </div>
+                    </form>
+
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                        <img src="{% static 'inicio/img/Casa3.jpg' %}" class="img-thumbnail" width="100%">
+                        <p>Casa en renta ubicado en Guadalajara</p>
+                        
+                         <a href="{%url 'Informacion'%}" data-toggle="modal">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                        </a>
+                        
+                    </div>
+                    
+                    
+                
+                </aside>
+
+                <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                        <img src="{% static 'inicio/img/Casa3.jpg' %}" class="img-thumbnail" width="100%">
+                        <p>Terreno en Morelia</p>
+                        
+                         <a href="{%url 'Informacion'%}" data-toggle="modal">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>    Leer Más</button>
+                        </a>
+                        
+                    </div>
+                    
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                        <img src="{% static 'inicio/img/Casa4.jpg' %}" class="img-thumbnail" width="100%">
+                        <p>Bodega en Mercado de Abastos</p>
+                        
+                         <a href="{%url 'Informacion'%}" data-toggle="modal">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                        </a>
+                        
+                    </div>
+                    
+                
+                </aside>
+                
+                <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        
+                            <img src="{% static 'inicio/img/Casa4.jpg' %}" class="img-thumbnail" width="100%">
+                            <p>Terreno en Morelia</p>
+                            
+                             <a href="{%url 'Informacion'%}" data-toggle="modal">
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>    Leer Más</button>
+                            </a>
+                            
+                        </div>
+                        
+                        
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        
+                            <img src="{% static 'inicio/img/Casa3.jpg' %}" class="img-thumbnail" width="100%">
+                            <p>Bodega en Mercado de Abastos</p>
+                            
+                             <a href="{%url 'Informacion'%}" data-toggle="modal">
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                            </a>
+                            
+                        </div>
+                        
+                    
+                    </aside>
+
+               <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                        <img src="{% static 'inicio/img/Casa3.jpg' %}" class="img-thumbnail" width="100%">
+                        <p>Terreno en Morelia</p>
+                        
+                         <a href="{%url 'Informacion'%}" data-toggle="modal">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>    Leer Más</button>
+                        </a>
+                        
+                    </div>
+                    
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                        <img src="{% static 'inicio/img/Casa4.jpg' %}" class="img-thumbnail" width="100%">
+                        <p>Bodega en Mercado de Abastos</p>
+                        
+                         <a href="{%url 'Informacion'%}" data-toggle="modal">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                        </a>
+                        
+                    </div>
+                    
+                
+                </aside>
+            
+            </section>
+        <!-- fin Casas en renta-->
+    </div>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        {% load static %}
+        <title>{% block titulo %}Réntame{% endblock %}</title>
+        <meta charset="utf-8">
+        <!-- Estilo Carga de casas-->
+        <link href="img2/icono01.ico" rel="icon">
+        <link rel="STYLESHEET" type="text/css" href="{% static 'inicio/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link rel="STYLESHEET" type="text/css" href="{% static 'inicio/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link rel="STYLESHEET" type="text/css" href="{% static 'inicio/css/estilo.css' %}" rel="stylesheet' %}">
+        <script type="text/javascript" src="{% static 'inicio/js/jquery-2.2.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'inicio/js/bootstrap.min.js' %}"></script>
+        <!-- fin Estilo Carga de casas-->
+		<link rel="STYLESHEET" type="text/css" href="{% static 'inicio/css/Inicio.css' %}">
+        <link rel="stylesheet" href="{% static 'inicio/css/reset.css' %}" type="text/css" media="all">
+		<link rel="stylesheet" href="{% static 'inicio/css/layout.css' %}" type="text/css" media="all">
+        <link rel="stylesheet" href="{% static 'inicio/css/style.css' %}" type="text/css" media="all">
+        <script type="text/javascript" src="{% static 'inicio/js/jquery-1.6.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'inicio/js/cufon-yui.js' %}"></script>
+		<script type="text/javascript" src="{% static 'inicio/js/cufon-replace.js' %}"></script>
+  		<script type="text/javascript" src="{% static 'inicio/js/Didact_Gothic_400.font.js' %}"></script>
+		<script type="text/javascript" src="{% static 'inicio/js/jquery.nivo.slider.pack.js' %}"></script>
+		<script type="text/javascript" src="{% static 'inicio/js/atooltip.jquery.js' %}"></script>
+		<script type="text/javascript" src="{% static 'inicio/js/jquery.jqtransform.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'inicio/js/script.js' %}"></script>
+        <script type="text/javascript" src="{% static 'inicio/js/jquery.easing.1.3.js' %}"></script>
+        <script type="text/javascript" src="{% static 'inicio/js/Inicio.js' %}"></script>
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/html5.js"></script>
+			<style type="text/css">
+				.bg{ behavior: url(js/PIE.htc); }
+			</style>
+		<![endif]-->
+		<!--[if lt IE 7]>
+			<div style=' clear: both; text-align:center; position: relative;'>
+				<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+			</div>
+		<![endif]-->
+	</head>
+
+	<body id="page2">
+		
+		<div class="body1">
+			<div class="main">
+<!-- header -->
+				<header>
+                    <a href="{%url 'Inicio'%}" ><img src="{% static 'inicio/img/LogoRentame.png' %}" class="encabezado encDerecha"/></a>
+                    <a href="{% url 'Inicio' %}"><img src="{% static 'inicio/img/LogoRentame.png' %}" class="encabezado encIzquierda"/></a>
+					<a href="{% url 'Inicio' %}"><img src="{% static 'inicio/img/TextoRentame.png' %}" id="LetrasR"></a>
+					
+				</header>
+<!-- / header -->
+			</div>
+		</div>
+	
+<!-- Contentenido Filtro,Carrusel -->
+	{% block Contenido %}
+
+        <div class="body3">
+            <header id="hh">
+                <nav class="nav">
+                    <ul id="menu">
+                        <li id="menu_active"><a href="{%url 'MuestrarioR'%}">Catalogo en Renta</a></li>
+						<li><a href="{%url 'MuestrarioV'%}">Catalogo en Venta</a></li>
+						<li><a href="{%url 'Muestrario'%}">Catalogo</a></li>
+                    </ul>
+                </nav>
+                </header>
+		</div> 
+		     
+		
+		<div class="body2">
+            	<!--Carrusel de Casa destacadas o mas vistas-->
+			<div class="main">
+				<section id="content">
+					<div class="wrapper">
+						<article class="col1">
+							<div id="slider">
+									{% for Propiedades in Propiedad %}
+                                    <img class="carrusel" src="{{Propiedades.FotoUno.url}}" alt="" title="<strong>{{Propiedades.Titulo}}</strong><span>{{Propiedades.NoCuartos}} cuartos &nbsp; &nbsp; &nbsp; Precio: $ {{Propiedades.idVR.Precio}} &nbsp; &nbsp; &nbsp; <a href='{% url 'Informacion' idP=Propiedades.idP %}'>LEER MAS</a></span>">
+									{%endfor%} 
+							</div>
+                        </article>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+<!-- / contentenido Filto,Carrusel -->
+		<div class="body4">
+			<div class="main">
+<!-- pie de pagina -->
+				<footer>
+                    <a href="#" title="PlayStore"><img class="encabezado desDerechaps" src="{% static 'inicio/img/play-store.png' %}" alt=""></a>
+                    <a href="#" title="AppStore"><img class="encabezado desDerechaple" src="{% static 'inicio/img/images.png' %}" alt=""></a>
+					Acerca de Nosotros <a href="#">www.Rentame.com/AC</a>
+                    Contactar <a href="#">www.Rentame.com/Contacto</a>
+                    Redes Sociales <a href="#" class="normaltip" title="Facebook"><img src="{% static 'inicio/img/icon1.jpg' %}" alt=""></a>
+                    <a href="#" class="normaltip" title="Twitter"><img src="{% static 'inicio/img/icon2.jpg' %}" alt=""></a>
+					<!-- {%FOOTER_LINK} -->
+				</footer>
+<!-- / pie de pagina -->
+			</div>
+        </div>
+    {% endblock %}    
+		<script type="text/javascript"> Cufon.now(); </script>
+		<script type="text/javascript">
+		   $(window).load(function() {
+		   $('#slider').nivoSlider({
+				effect:'sliceUpDown', //Specify sets like: 'fold,fade,sliceDown, sliceDownLeft, sliceUp, sliceUpLeft, sliceUpDown, sliceUpDownLeft'
+				slices:17,
+				animSpeed:500,
+				pauseTime:6000,
+				startSlide:0, //Set starting Slide (0 index)
+				directionNav:false, //Next & Prev
+				directionNavHide:false, //Only show on hover
+				controlNav:true, //1,2,3...
+				controlNavThumbs:false, //Use thumbnails for Control Nav
+				controlNavThumbsFromRel:false, //Use image rel for thumbs
+				controlNavThumbsSearch: '.jpg', //Replace this with...
+				controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+				keyboardNav:true, //Use left & right arrows
+				pauseOnHover:true, //Stop animation while hovering
+				manualAdvance:false, //Force manual transitions
+				captionOpacity:1, //Universal caption opacity
+				beforeChange: function(){$('.nivo-caption').animate({bottom:'-110'},400,'easeInBack')},
+				afterChange: function(){Cufon.refresh();$('.nivo-caption').animate({bottom:'-20'},400,'easeOutBack')},
+				slideshowEnd: function(){} //Triggers after all slides have been shown
+			});
+		   Cufon.refresh();
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends "inicio/Inicio.html" %}
+{% block titulo %}Muestrario{% endblock %}
+{% load static %}
+{% block Contenido%}
+<script>
+    function clave(){
+        var Cv=document.getElementById('clv').innerHTML;
+        window.alert(Cv)
+    }
+</script>
+    <div>
+            <div class="body3">
+                    <header id="hh">
+                        <nav class="nav">
+                            <ul id="menu">
+                                <li id="menu_active"><a href="{%url 'MuestrarioV'%}">Catalogo en Venta</a></li>
+                                <li><a href="{%url 'Muestrario'%}">Catalogo</a></li>
+                            </ul>
+                        </nav>
+                        </header>
+            </div>
+            <br>
+        <!-- Casas en renta -->
+        <!--Se Generan dos For uno llamado Propiedades y otro Hoteles encargado de generara los campos para mostrar todas las casas u Hoteles registradas en la bd-->
+        <section id="seccion">
+            {% for Propiedades in Propiedad %}
+            {% ifequal Propiedades.idVR.Categoria "Renta" %}
+                <aside  class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                                <img src="{{Propiedades.FotoUno.url}}" class="img-thumbnail" width="100%">
+                                <p style="width: 270px; height: auto; text-align: left">{{Propiedades.Titulo}}</p>
+                                <p>{{Propiedades.idVR.Categoria}}</p>
+                                <p>${{Propiedades.idVR.Precio}}</p>
+                                 <a href="{% url 'Informacion' idP=Propiedades.idP %}" data-toggle="modal">
+                                <button id="clave{{Propiedades.idP}}" type="submit" class="btn btn-primary btn-lg btn-block" value="{{Propiedades.idP}}"><span class="glyphicon glyphicon-new-window" ></span>Leer Más</button>
+                                </a>
+                                
+                            </div>
+                </aside>
+            {%endifequal%}
+            {%endfor%}  
+            
+            {%for Hoteles in Hotel%}
+            {% ifequal Hoteles.idVR.Categoria "Renta" %}
+                <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    
+                                <img src="{{Hoteles.FotoUno.url}}" class="img-thumbnail" width="100%">
+                                <p>{{Hoteles.Nombre}}</p>
+                                <p>{{Hoteles.idVR.Categoria}}</p>
+                                <p>${{Hoteles.idVR.Precio}}</p>
+                                 <a href="{% url 'InformacionH' idH=Hoteles.idH %}" data-toggle="modal">
+                                <button id="clave{{Hoteles.idH}}" type="button" class="btn btn-primary btn-lg btn-block" value="{{Hoteles}}" onclick="clave()"><span class="glyphicon glyphicon-new-window"></span>   Leer Más</button>
+                                </a>
+                                
+                            </div>       
+                </aside>
+            {%endifequal%}    
+            {%endfor%} 
+        </form>
+            </section>
+       <!--Fin de los for encargado de generar los campos-->
+        <!-- fin Casas en renta-->
+    </div>
+
+{% endblock %}

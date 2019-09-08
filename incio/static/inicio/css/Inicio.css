@@ -1,0 +1,49 @@
+.encabezado{
+    display: scroll;
+    position: absolute;
+    width: 11%;
+    height: auto;
+}
+.carrusel{
+    display: scroll;
+    position: absolute;
+    width: 11%;
+    height: auto;
+}
+.encDerecha{
+    top: 1%;
+    right: 2%;
+}
+
+.encIzquierda{
+    top: 1%;
+    left: 2%;
+}
+
+.desDerechaps{
+    bottom: 1%;
+    right: 2%;
+}
+.desDerechaple{
+    bottom: 1%;
+    left: 75%;
+}
+
+
+#divEnc{
+    margin: 0;
+    border: red 2px solid;
+}
+#LetrasR{
+    right: 32%;
+    left: 32%;
+    height: auto;
+    width: 35%;
+    position: absolute;
+}
+
+.precio{
+    height: auto;
+    width: 100%;
+}
+
